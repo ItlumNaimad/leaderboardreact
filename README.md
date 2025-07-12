@@ -72,6 +72,17 @@ npm run dev
 yarn dev
 ```
 
+### Uruchomienie bazy danych w terminalu
+
+```bash
+docker-compose up -d
+```
+![SchemaDatabaseConf.png](SchemaDatabaseConf.png)
+
+```bash
+docker-compose exec db psql -U admin -d leaderboard_db
+```
+
 Aplikacja będzie dostępna pod adresem: [http://localhost:3000](http://localhost:3000)
 
 

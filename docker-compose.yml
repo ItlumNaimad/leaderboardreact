@@ -1,0 +1,23 @@
+# Definicja serwisów (kontenerów), które chcemy uruchomić
+services:
+  # Nazwa naszego serwisu - możemy ją nazwać dowolnie, np. 'db'
+  db:
+    # Używamy oficjalnego obrazu PostgreSQL. Wersja 16-alpine jest lekka i wydajna.
+    image: postgres:16.0-alpine
+    # Zawsze restartuj kontener, jeśli się zatrzyma (np. po restarcie komputera)
+    restart: always
+    # Zmienne środowiskowe potrzebne do inicjalizacji bazy danych
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password # <-- Zmień to hasło!
+      POSTGRES_DB: leaderboard_db
+    # Mapowanie portów: udostępnij port 5432 z kontenera na porcie 5432 Twojego komputera (hosta)
+    ports:
+      - "5432:5432"
+    # Wolumeny: zapewniają, że dane Twojej bazy przetrwają restarty i usunięcie kontenera
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+# Definicja nazwanych wolumenów
+volumes:
+  postgres_data:
