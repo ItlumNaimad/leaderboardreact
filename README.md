@@ -101,9 +101,9 @@ Zapraszamy do zgłaszania problemów i propozycji ulepszeń! Proszę utworzyć n
 ## 📞 Kontakt
 
 Masz pytania? Skontaktuj się ze mną przez [GitHub Issues](https://github.com/ItlumNaimad/Leaderboard_React/issues) lub [naimad2003@wp.pl](mailto:naimad2003@wp.pl)
-## ##########################################
+## \#################
 ## #STWORZONE README PRZEZ INICJALIZACJĘ NPM#
-## ##########################################
+## \#################
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

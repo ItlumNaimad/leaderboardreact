@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down",
+    "db:restart": "docker-compose restart",
+    "db:logs": "docker-compose logs -f db",
+    "db:psql": "docker-compose exec db psql -U admin -d leaderboard_db",
+    "db:reset": "docker-compose down -v && docker-compose up -d"
   },
   "dependencies": {
     "react": "^19.0.0",
