@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Team {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(100)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  homeMatches Match[] @relation("HomeMatches")
+  awayMatches Match[] @relation("AwayMatches")
+}
+
+model Tournament {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(100)
+  startDate DateTime @map("start_date")
+  endDate   DateTime? @map("end_date")
+  status    String   @default("pending") @db.VarChar(20)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  matches Match[]
+}
+
+model Match {
+  id           Int      @id @default(autoincrement())
+  tournament   Tournament @relation(fields: [tournamentId], references: [id])
+  tournamentId Int
+
+  teamHome     Team     @relation("HomeMatches", fields: [teamHomeId], references: [id])
+  teamHomeId   Int
+
+  teamAway     Team     @relation("AwayMatches", fields: [teamAwayId], references: [id])
+  teamAwayId   Int
+
+  homeScore    Int?
+  awayScore    Int?
+  matchDate    DateTime @map("match_date")
+  status       String   @default("scheduled") @db.VarChar(20)
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("matches")
+}
