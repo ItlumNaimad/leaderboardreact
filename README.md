@@ -24,7 +24,7 @@ Aplikacja webowa do zarządzania turniejami, drużynami, meczami oraz wyświetla
 - **Backend**:
     - Next.js API Routes
     - Node.js
-- **Baza danych**: PostgreSQL
+- **Baza danych**: PostgreSQL, Prisma
 - **Narzędzia**: WebStorm, pgAdmin
 
 ## 📦 Wymagania wstępne
@@ -32,6 +32,7 @@ Aplikacja webowa do zarządzania turniejami, drużynami, meczami oraz wyświetla
 - Node.js (wersja 18 lub nowsza)
 - PostgreSQL (wersja 12 lub nowsza)
 - npm (zwykle dołączony do Node.js) lub Yarn
+- Docker (zalecany)
 
 ## 🚀 Instalacja i Konfiguracja
 
